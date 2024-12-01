@@ -46,6 +46,7 @@ document.getElementById('expense-form').addEventListener('submit', function (e) 
     calculateSettlements();
 });
 
+// Update balances table
 function updateBalancesTable() {
     const tableBody = document.getElementById('balances-table');
     tableBody.innerHTML = '';
@@ -56,6 +57,7 @@ function updateBalancesTable() {
     });
 }
 
+// Calculate settlements
 function calculateSettlements() {
     const tableBody = document.getElementById('settlement-table');
     tableBody.innerHTML = '';
@@ -85,7 +87,9 @@ function calculateSettlements() {
     }
 }
 
+// Reset balances and settlements
 document.getElementById('reset-button').addEventListener('click', function () {
-    localStorage.clear();
-    location.reload();
+    Object.keys(balances).forEach(key => delete balances[key]);
+    updateBalancesTable();
+    calculateSettlements();
 });
