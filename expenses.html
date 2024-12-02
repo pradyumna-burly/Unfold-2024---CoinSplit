@@ -10,32 +10,40 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Splitwise 2.0 - Add Expenses</h1>
+        <div class="text-center mb-4">
+            <h1 class="main-title">Splitwise 2.0</h1>
+            <h2 class="sub-title">Add Expenses</h2>
+        </div>
         <form id="expense-form" class="mb-4">
-            <div class="mb-3">
-                <label for="payer" class="form-label">Who Paid?</label>
-                <select id="payer" class="form-select" required></select>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <label for="payer" class="form-label">Who Paid?</label>
+                    <select id="payer" class="form-control" required>
+                        <option value="" disabled selected>Select Payer</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="amount" class="form-label">Amount</label>
+                    <input type="number" id="amount" class="form-control" placeholder="Enter Amount" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="participants" class="form-label">To Whom?</label>
+                    <select id="participants" class="form-control" multiple required>
+                        <option value="" disabled>Select Participants</option>
+                    </select>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="amount" class="form-label">Amount Paid</label>
-                <input type="number" id="amount" class="form-control" placeholder="Amount Paid" required>
-            </div>
-            <div class="mb-3">
-                <label for="participants" class="form-label">For Whom?</label>
-                <select id="participants" class="form-select" multiple required></select>
-            </div>
-            <button type="submit" class="btn btn-success w-100">Add Expense</button>
+            <button type="submit" class="btn btn-success mt-3 w-100">Add Expense</button>
         </form>
         <h2>Balances</h2>
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Person</th>
+                    <th>Name</th>
                     <th>Balance</th>
                 </tr>
             </thead>
-            <tbody id="balances-table">
-            </tbody>
+            <tbody id="balances-table"></tbody>
         </table>
         <h2>Settlements</h2>
         <table class="table table-bordered">
@@ -46,12 +54,11 @@
                     <th>Amount</th>
                 </tr>
             </thead>
-            <tbody id="settlement-table">
-            </tbody>
+            <tbody id="settlement-table"></tbody>
         </table>
-        <div class="d-flex justify-content-between mt-3">
+        <div class="d-flex justify-content-between">
             <button id="reset-button" class="btn btn-danger">Reset</button>
-            <a href="index.html" class="btn btn-primary">Back</a>
+            <a href="index.html" class="btn btn-secondary">Back to Add Members</a>
         </div>
     </div>
     <script src="expenses.js"></script>
